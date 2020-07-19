@@ -1,0 +1,2 @@
+class ConsiderationComment < ApplicationRecord
+end

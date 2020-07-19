@@ -1,0 +1,2 @@
+class ComicImpression < ApplicationRecord
+end
