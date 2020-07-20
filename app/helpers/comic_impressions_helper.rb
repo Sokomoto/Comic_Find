@@ -1,0 +1,2 @@
+module ComicImpressionsHelper
+end

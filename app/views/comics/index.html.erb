@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+<!--ランキングなどを作る際にrenderで引っ張ってくる-->
+    <div class="col-xs-9">
+      <h2>マンガタイトル一覧</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+        <% @comics.each do |comic| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag comic, :image, size: '60x60' , fallback: "no_comic_image.jpg" %>
+              </td>
+              <td>
+                <%= link_to comic_path(comic) do %>
+                <%= comic.title %>
+                <% end %>
+                </td>
+              <td><%= comic.explanation %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
