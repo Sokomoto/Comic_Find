@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
   devise_for :admins
+  namespace :adimin do
+  	get '/' => "home#top"
+  	resources :comics
+    resources :comic_impressions
+    resources :considerations
+    resources :consideration_comments
+  	resources :users, except:[:new]
+  end
+
   devise_for :users
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
-  get '/home/about' => 'abouts#top'
   resources :users, except:[:new, :create]
-  resources :books, except:[:new]
+  get '/users/:id/leave' => "users#leave"
+  patch '/users/:id/hide' => "users#hide"
+  resources :comics, except:[:new]
+  resources :comic_impressions, except:[:new]
+  resources :considerations, except:[:new]
+  resources :consideration_comments, except:[:new]
+
 end
