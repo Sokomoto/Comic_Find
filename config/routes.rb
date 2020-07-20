@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :adimin do
   	get '/' => "home#top"
   	resources :comics
+    resources :comic_impressions
+    resources :considerations
+    resources :consideration_comments
   	resources :users, except:[:new]
   end
 
