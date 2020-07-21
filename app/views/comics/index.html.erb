@@ -12,7 +12,7 @@
         <% @comics.each do |comic| %>
             <tr>
               <td>
-                <%= attachment_image_tag comic, :image, size: '60x60' , fallback: "no_comic_image.jpg" %>
+                <%= attachment_image_tag comic, :image, size: '60x60' , fallback: "no_comic_image.png" %>
               </td>
               <td>
                 <%= link_to comic_path(comic) do %>
