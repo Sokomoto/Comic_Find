@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :consideration, dependent: :destroy
   has_many :consideration_comment, dependent: :destroy
 
+  attachment :profile_image
+
   validates :name, length: { in: 2..20 }, presence: true
   enum is_status: {有効: true, 退会済: false}
 

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <h3>ユーザーからのレビュー</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+        <% @impressions.each do |i| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag i.user, :profile_image, size: '80x80' , fallback: "no_image.jpg" %>
+              </td>
+              <td>
+                <%= i.user.name %>
+              </td>
+              <td><%= i.impression %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

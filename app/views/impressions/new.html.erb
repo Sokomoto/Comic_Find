@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="d-flex align-items-center">
+              <h2>マンガのレビューを書く</h2><!--レビュー対象のタイトルが表示されるようにできればする>
+            <!--作品一覧に戻るボタンをここに追加-->
+            </div>
+            <%= form_for @impression do |i| %>
+                <div class="form-group">
+                    <%= i.label :impression, '作品のレビュー内容' %>
+                    <%= i.text_area :impression, class: 'form-control', rows:10 %>
+                    <small id="impression-tip" class="form-text text-muted">
+                        作品のレビューを入力してください。
+                    </small>
+                </div>
+                <%= i.submit '投稿', class: 'btn btn-info btn-block' %>
+                <small id="submit-tip" class="form-text text-muted">
+                </small>
+            <% end %>
+        </div>
+    </div>
+</div>
