@@ -18,7 +18,7 @@ class ComicsController < ApplicationController
 
 	def show
 		@comic = Comic.find(params[:id])
-		@impressions = ComicImpression.where(comic_id: @comic.id)
+		@impressions = Impression.where(comic_id: @comic.id)
 	end
 
 	def edit

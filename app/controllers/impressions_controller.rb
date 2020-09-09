@@ -3,11 +3,11 @@ class ImpressionsController < ApplicationController
 	before_action :get_impression, only:[:show, :edit, :update, :destroy]
 
 	def new
-		@impression = ComicImpression.new
+		@impression = Impression.new
 	end
 
 	def create
-		@impression = ComicImpression.new(comic_impression_params)
+		@impression = Impression.new(impression_params)
 		@impression.user_id = current_user.id
 		@impression.comic_id = params[:comic_id]
 		@impression.save
@@ -22,7 +22,7 @@ class ImpressionsController < ApplicationController
 	end
 
 	def update
-		@impression.update(comic_impression_params)
+		@impression.update(impression_params)
 		redirect_to comic_impression_path(params[:comic_id], @impression.id)
 	end
 
@@ -41,11 +41,11 @@ class ImpressionsController < ApplicationController
 	end
 
 	def get_impression
-		@impression = ComicImpression.find(params[:id])
+		@impression = Impression.find(params[:id])
 	end
 
 
-	def comic_impression_params
-  	params.require(:comic_impression).permit(:impression)
+	def impression_params
+  		params.require(:impression).permit(:impression)
   	end
 end

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/users/:id/leave' => "users#leave"
   patch '/users/:id/hide' => "users#hide"
   resources :comics do
-    resources :impressions, only:[:new, :create, :show, :edit, :update, :destroy]
+    resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   end
 
 end

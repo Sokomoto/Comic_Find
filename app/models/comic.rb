@@ -3,5 +3,5 @@ class Comic < ApplicationRecord
 	validates :explanation, presence: true
 	belongs_to :user
 	attachment :image
-	has_many :comic_impressions, dependent: :destroy
+	has_many :impressions, dependent: :destroy
 end

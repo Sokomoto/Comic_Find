@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 2020_07_26_070624) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "comic_impressions", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "comic_id"
-    t.text "impression"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comics", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
@@ -41,18 +33,10 @@ ActiveRecord::Schema.define(version: 2020_07_26_070624) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "consideration_comments", force: :cascade do |t|
+  create_table "impressions", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "consideration_id"
-    t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "considerations", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "title"
-    t.text "consideration"
+    t.integer "comic_id"
+    t.text "impression"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -6,7 +6,7 @@
             <!--作品一覧に戻るボタンをここに追加-->
             </div>
             <!-- レビューの編集画面を表示 -->
-            <%= form_for @impression do |f| %>
+            <%= form_for @impression, url: comic_impressions_path(@comic) do |f| %>
             <%= render 'form', i: f %>
             <% end %>
         </div>
