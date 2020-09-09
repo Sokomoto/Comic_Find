@@ -1,4 +1,6 @@
 class ImpressionsController < ApplicationController
+	before_action :get_comic
+	before_action :get_impression, only:[:show, :edit, :update, :destroy]
 
 	def new
 		@impression = ComicImpression.new
@@ -13,25 +15,35 @@ class ImpressionsController < ApplicationController
 	end
 
 	def show
-		@impression = ComicImpression.find(params[:id])
 		@user = @impression.user
-		@comic = Comic.find(params[:comic_id])
 	end
 
 	def edit
 	end
 
+	def update
+		@impression.update(comic_impression_params)
+		redirect_to comic_impression_path(params[:comic_id], @impression.id)
+	end
+
 	def destroy
-		comic = Comic.find(params[:comic_id])
-		impression = ComicImpression.find(params[:id])
-		if impression.user != current_user
-		   redirect_to comic_path(comic)
+		if @impression.user != current_user
+		   redirect_to comic_path(@comic)
 		end
-			impression.destroy
-			redirect_to comic_path(comic)
+			@impression.destroy
+			redirect_to comic_path(@comic)
 	end
 
 	private
+
+	def get_comic
+		@comic = Comic.find(params[:comic_id])
+	end
+
+	def get_impression
+		@impression = ComicImpression.find(params[:id])
+	end
+
 
 	def comic_impression_params
   	params.require(:comic_impression).permit(:impression)

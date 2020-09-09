@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="d-flex align-items-center">
-              <h2>マンガのレビューを投稿する</h2><!--レビュー対象のタイトルが表示されるようにできればする>
+              <h2>マンガのレビューを編集する</h2><!--レビュー対象のタイトルが表示されるようにできればする>
             <!--作品一覧に戻るボタンをここに追加-->
             </div>
             <!-- レビューの編集画面を表示 -->
-            <%= form_for @impression do |f| %>
+            <%= form_for @impression, url: comic_impression_path(@comic, @impression) do |f| %>
             <%= render 'form', i: f %>
             <% end %>
         </div>
