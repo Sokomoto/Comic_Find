@@ -22,7 +22,6 @@
                 <!-- ここに「ようこそログインユーザー名』をつけたい -->
                   <li><%= link_to 'マイページ', user_path(current_user) %></li>
                   <li><%= link_to 'マンガタイトル一覧', comics_path %></li>
-                  <li><%= link_to '考察一覧', considerations_path %></li>
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
                 <% else %>
                   <li><%= link_to 'マンガタイトル一覧', comics_path %></li>
@@ -39,30 +38,6 @@
     <main>
       <%= yield %>
     </main>
-
-    <footer class="footer style-2">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <ul class="nav navbar-nav navbar-left">
-              <%= link_to 'ComicFind', root_path, class: "logo" %>
-            </ul>
-          </div>
-            <ul class="nav navbar-nav navbar-right">
-              <% if user_signed_in? %>
-                <li><%= link_to 'マイページ', user_path(current_user) %></li>
-                <li><%= link_to 'マンガタイトル一覧', comics_path %></li>
-                <li><%= link_to '考察一覧', considerations_path %></li>
-                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to 'マンガタイトル一覧', comics_path %></li>
-                <li><%= link_to '新規登録', new_user_registration_path %></li>
-                <li><%= link_to 'ログイン', new_user_session_path %></li>
-              <% end %>
-            </ul>
-        </div>
-      </div>
-    </footer>
 
   </body>
 </html>

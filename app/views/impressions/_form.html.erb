@@ -1,0 +1,11 @@
+
+    <div class="form-group">
+        <%= i.label :impression, '作品のレビュー内容' %>
+        <%= i.text_area :impression, class: 'form-control', rows:10 %>
+        <small id="impression-tip" class="form-text text-muted">
+            作品のレビューを入力してください。
+        </small>
+    </div>
+    <%= i.submit '投稿', class: 'btn btn-info btn-block' %>
+    <small id="submit-tip" class="form-text text-muted">
+    </small>

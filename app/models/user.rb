@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comic, dependent: :destroy
-  has_many :comic_impression, dependent: :destroy
-  has_many :consideration, dependent: :destroy
-  has_many :consideration_comment, dependent: :destroy
+  has_many :impression, dependent: :destroy
+
+  attachment :profile_image
 
   validates :name, length: { in: 2..20 }, presence: true
   enum is_status: {有効: true, 退会済: false}
