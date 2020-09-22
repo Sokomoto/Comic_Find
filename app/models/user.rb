@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :comic, dependent: :destroy
   has_many :impression, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   attachment :profile_image
 

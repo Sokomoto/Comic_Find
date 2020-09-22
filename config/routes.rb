@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch '/users/:id/hide' => "users#hide"
   resources :users, except:[:new, :create]
   resources :comics do
+    resource :favorites, only:[:create, :destroy]
     resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   end
 
