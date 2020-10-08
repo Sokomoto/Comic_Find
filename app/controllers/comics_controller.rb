@@ -8,11 +8,14 @@ class ComicsController < ApplicationController
 	def create
 		@comic = Comic.new(comic_params)
 		@comic.user_id = current_user.id
+		tag_list = params[:comic][:tag_name].split(',')
 		@comic.save
+		@comic.save_tags(tag_list)
 		redirect_to comics_path
 	end
 
 	def index
+		@tag_list = Tag.all
     	@comics = Comic.all
     	@all_ranks = Comic.find(Favorite.group(:comic_id).order('count(comic_id) desc').limit(5).pluck(:comic_id))
 	end
@@ -20,6 +23,7 @@ class ComicsController < ApplicationController
 	def show
 		@comic = Comic.find(params[:id])
 		@impressions = Impression.where(comic_id: @comic.id)
+		@comic_tags = @comic.tags
 	end
 
 	def edit
