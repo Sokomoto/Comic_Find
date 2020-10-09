@@ -1,32 +1,57 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-9">
-  		<h3><b><%= @comic.title %></b></h3>
-  			<div class="text-right">
-
-    			<%= link_to "マンガタイトル一覧に戻る", comics_path, class: 'btn btn-default btn-lg pull-right' %>
-          <%= link_to "このマンガのレビューを書く", new_comic_impression_path(@comic, @impression), class: 'btn btn-default btn-lg pull-right' %>
-        </div>
-
-        <div class="text-center">
-          <% if @comic.favorited_by?(current_user) %>
-            <%= link_to comic_favorites_path(@comic), method: :delete do %>
-              <i class="fas fa-thumbs-up" aria-hidden="true" style="color: #0072BC;"></i>
-              <%= @comic.favorites.count %> 面白かった
-            <% end %>
-          <% else %>
-            <%= link_to comic_favorites_path(@comic), method: :post do %>
-              <i class="fas fa-thumbs-up-o" aria-hidden="true"></i>
-              <%= @comic.favorites.count %> 面白かった
-            <% end %>
-          <% end %>
-        </div>
-
-  		<%= attachment_image_tag @comic, :image, size: '150x150' , fallback: "no_comic_image.png" %>
-  		<h4><b>ストーリー紹介</b></h4>
-  			<%= @comic.explanation %>
-  	</div>
-  	<!-- ユーザーからのレビュー一覧をrenderで引っ張ってくる -->
-  	<%= render 'impressions/impression_index', impressions: @impressions %>
+    <div class="col-xs-10">
+      <!-- 漫画のタイトルを表示 -->
+      <h3><b><%= @comic.title %></b></h3>
+    </div>
   </div>
+
+  <div class="row">
+    <!-- 漫画の画像を表示 -->
+    <div class="col-xs-2">
+      <%= attachment_image_tag @comic, :image, size: '150x150' , fallback: "no_comic_image.png" %>
+    </div>
+
+    <!-- いいね機能 -->
+    <div class="col-xs-2">
+      <% if @comic.favorited_by?(current_user) %>
+        <%= link_to comic_favorites_path(@comic), method: :delete do %>
+          <i class="fas fa-thumbs-up" aria-hidden="true" style="color: #0072BC;"></i>
+          <%= @comic.favorites.count %> 面白かった
+        <% end %>
+      <% else %>
+        <%= link_to comic_favorites_path(@comic), method: :post do %>
+          <i class="fas fa-thumbs-up-o" aria-hidden="true"></i>
+          <%= @comic.favorites.count %> 面白かった
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-xs-3">
+      <%= link_to "このマンガのレビューを書く", new_comic_impression_path(@comic, @impression), class: 'btn btn-info btn-block' %>
+    </div>
+
+    <div class="col-xs-3">
+      <%= link_to "マンガタイトル一覧に戻る", comics_path, class: 'btn btn-info btn-block' %>
+    </div>
+
+    <!-- タグ機能 -->
+    <div class="col-xs-10">
+      <b>登録タグ :</b>
+      <% @comic_tags.each do |tag| %>
+        <%= tag.tag_name %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10">
+      <h4><b>ストーリー紹介</b></h4>
+      <%= @comic.explanation %>
+    </div>
+  </div>
+
+	<!-- ユーザーからのレビュー一覧を表示 -->
+  <%= render 'impressions/impression_index', impressions: @impressions %>
+
 </div>
