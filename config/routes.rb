@@ -17,5 +17,9 @@ Rails.application.routes.draw do
     resource :favorites, only:[:create, :destroy]
     resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   end
+  #タグで絞り込んだ投稿を表示するルーティング
+  resources :tags do
+    get 'comics', to:'comics#search'
+  end
 
 end
