@@ -22,4 +22,6 @@ Rails.application.routes.draw do
     get 'comics', to:'comics#search'
   end
 
+  get '/search' => "search#search"
+
 end

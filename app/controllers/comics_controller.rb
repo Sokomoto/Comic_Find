@@ -45,6 +45,10 @@ class ComicsController < ApplicationController
 		@comics = @tag.comics.all
 	end
 
+	def word_search
+		@comics = Comic.search(params[:search])
+	end
+
 	def destroy
 	end
 

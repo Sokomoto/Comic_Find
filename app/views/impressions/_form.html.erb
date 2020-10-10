@@ -6,6 +6,7 @@
             作品のレビューを入力してください。
         </small>
     </div>
-    <%= i.submit '投稿', class: 'btn btn-info btn-block' %>
+    <p><%= i.submit '投稿', class: 'btn btn-info btn-block' %>
     <small id="submit-tip" class="form-text text-muted">
-    </small>
+    </small></p>
+    <p><%= link_to "作品情報とレビュー一覧に戻る", comic_path(@comic), class: 'btn btn-info btn-block' %></p>
