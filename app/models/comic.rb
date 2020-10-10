@@ -29,7 +29,7 @@ class Comic < ApplicationRecord
 
   def self.search(search)
     if search
-      Comic.where(['name LIKE ?', "%#{search}%"])
+      Comic.where(['title LIKE ?', "%#{search}%"])
     else
       Comic.all
     end
