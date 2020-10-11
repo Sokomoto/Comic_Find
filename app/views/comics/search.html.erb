@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<!-- タグ一覧 -->
+		<h3>タグ一覧</h3>
+		<% @tag_list.each do |list| %>
+			<%= link_to list.tag_name, tag_comics_path(tag_id: list.id) %>
+		<% end %>
+	</div>
+
+	<br>
+
+	<div class="row">
+		<div class="col-xs-5">
+			<h4>
+			タグが
+				<b>“<%= @tag.tag_name %>”</b>
+			のタイトル一覧
+			</h4>
+		</div>
+		<div class="col-xs-3">
+			<!-- ひとまずタグで絞り込んだ直後であれば作品詳細へ戻れるように -->
+			<%= link_to "前のページに戻る", :back, class: 'btn btn-info btn-block' %>
+		</div>
+	</div>
+
+	<table class="table table-hover table-inverse">
+	    <% @comics.each do |comic| %>
+	        <tr>
+	          <td>
+	            <%= attachment_image_tag comic, :image, size: '80x80' , fallback: "no_comic_image.png" %>
+
+	            <%= link_to comic_path(comic) do %>
+	            <%= comic.title %>
+	            <% end %>
+	          </td>
+	        </tr>
+	    <% end %>
+	</table>
+
+</div>

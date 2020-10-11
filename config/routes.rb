@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  namespace :adimin do
-  	get '/' => "home#top"
+  devise_for :admins, controllers: {
+  sessions: 'admins/sessions'}
+  namespace :admin do
+  	get '/' => "homes#top"
   	resources :comics do
      resources :impressions
   	end
@@ -17,5 +18,11 @@ Rails.application.routes.draw do
     resource :favorites, only:[:create, :destroy]
     resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   end
+  #タグで絞り込んだ投稿を表示するルーティング
+  resources :tags do
+    get 'comics', to:'comics#search'
+  end
+
+  get '/search' => "search#search"
 
 end
