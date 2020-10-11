@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  namespace :adimin do
-  	get '/' => "home#top"
+  devise_for :admins, controllers: {
+  sessions: 'admins/sessions'}
+  namespace :admin do
+  	get '/' => "homes#top"
   	resources :comics do
      resources :impressions
   	end
