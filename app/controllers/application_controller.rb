@@ -1,24 +1,24 @@
 class ApplicationController < ActionController::Base
-	before_action :authenticate_user!, except: [:top]
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
 	protected
 
+	# ログイン後のリダイレクト先
 	def after_sign_in_path_for(resource)
 	    case resource
 	    when User
 	      root_path
 	    when Admin
-	      admin_path
+	      admins_path
 	    end
   	end
 
-  	def after_sign_out_path_for(resource)
-	    case resource
-	    when User
+  	# ログアウト後のリダイレクト先
+  	def after_sign_out_path_for(resource_or_scope)
+	    if resource_or_scope == :admin
+	       new_admin_session_path
+	    else
 	      root_path
-	    when Admin
-	      new_admin_session_path
 	    end
   	end
 
