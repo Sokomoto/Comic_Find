@@ -29,7 +29,7 @@
                   <li><%= link_to 'マンガタイトル一覧', comics_path %></li>
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
                 <% elsif admin_signed_in? %>
-                  <li><%= link_to 'マンガタイトル一覧', "パス名が入ります" %></li>
+                  <li><%= link_to 'マンガタイトル一覧', admins_comics_path %></li>
                   <li><%= link_to 'ユーザー一覧', "パス名が入ります" %></li>
                   <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <% else %>
