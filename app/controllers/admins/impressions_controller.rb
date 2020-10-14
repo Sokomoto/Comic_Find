@@ -6,20 +6,14 @@ class Admins::ImpressionsController < ApplicationController
 		@user = @impression.user
 	end
 
-	def edit
-	end
-
 	def update
 		@impression.update(impression_params)
 		redirect_to admins_comic_impression_path(params[:comic_id], @impression.id)
 	end
 
 	def destroy
-		if @impression.user != current_user
-		   redirect_to admins_comic_path(@comic)
-		end
-			@impression.destroy
-			redirect_to admins_comic_path(@comic)
+		@impression.destroy
+		redirect_to admins_comic_path(@comic)
 	end
 
 	private

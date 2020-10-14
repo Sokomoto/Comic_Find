@@ -35,6 +35,10 @@ class Admins::ComicsController < ApplicationController
 	end
 
 	def destroy
+		@comic = Comic.find(params[:id])
+    	if @comic.destroy
+      	redirect_to admins_comics_path
+    	end
 	end
 
 	private

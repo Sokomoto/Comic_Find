@@ -28,11 +28,11 @@
     </div>
 
     <div class="col-xs-3">
-      <%= link_to "このマンガの情報を編集", edit_comic_path(@comic), class: 'btn btn-info btn-block' %>
+      <%= link_to "このマンガの情報を編集", edit_admins_comic_path(@comic), class: 'btn btn-info btn-block' %>
     </div>
 
     <div class="col-xs-3">
-      <%= link_to "このマンガを削除", new_comic_impression_path(@comic, @impression), class: 'btn btn-danger' %>
+      <%= link_to "このマンガを削除", admins_comic_path(@comic, @impression), method: :delete,"data-confirm" => "本当に消しますか?", class: 'btn btn-danger' %>
     </div>
 
     <!-- タグ機能 -->
@@ -52,6 +52,6 @@
   </div>
 
 	<!-- ユーザーからのレビュー一覧を表示 -->
-  <%= render 'impressions/impression_index', impressions: @impressions %>
+  <%= render 'admins/impressions/impression_index', impressions: @impressions %>
 
 </div>

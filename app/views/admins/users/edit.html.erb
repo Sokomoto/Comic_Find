@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <h2>ユーザー情報編集</h2>
+    </div>
+  </div>
+
+  <div class="row">
+      <%= form_for @user,url: admins_user_path(@user) do |f| %>
+        <%= render "devise/shared/error_messages", resource: @user %>
+
+        <%= render "users/user_form", f: f %>
+
+        <div class="row field form-group form-inline">
+          <span class="col-xs-3"><strong>会員ステータス</strong></span>
+            <lavel><%= f.radio_button :is_status, "有効" %>有効</lavel>
+            <lavel><%= f.radio_button :is_status, "退会済" %>退会済</lavel>
+        </div>
+
+      <div class="actions row">
+        <%= f.submit "変更を保存する",class:"btn btn-info" %>
+      </div>
+
+      <% end %>
+
+  </div>
+</div>
