@@ -5,11 +5,11 @@ class Comic < ApplicationRecord
 	attachment :image
 	has_many :impressions, dependent: :destroy
 	has_many :favorites, dependent: :destroy
-  has_many :tag_maps, dependent: :destroy
-  has_many :tags, through: :tag_maps
+  	has_many :tag_maps, dependent: :destroy
+  	has_many :tags, through: :tag_maps
 
-	def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+	def favorited_by?(user_id)
+    	favorites.where(user_id: user.id).exists?
   	end
 
 	def save_tags(tags)

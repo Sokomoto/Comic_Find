@@ -21,7 +21,7 @@
     	 <tr>
     	 	<td><%= comic.id %></td>
         <td><%= comic.title %></td>
-    	 	<td><%= link_to '作品情報とレビューへ移動', "パス名が入ります", class: 'btn btn-info btn-block' %></td>
+    	 	<td><%= link_to '作品情報とレビューへ移動', admins_comic_path(comic), class: 'btn btn-info btn-block' %></td>
     	 </tr>
     	 <% end %>
        <!-- kaminariのページネーションを追加 -->

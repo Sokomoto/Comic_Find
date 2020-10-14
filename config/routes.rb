@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   namespace :admins do
   	get '/' => "homes#top"
   	resources :comics do
-     resources :impressions
+      resource :favorites, only:[:create, :destroy]
+      resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   	end
-    resources :users, except:[:new]
+      resources :users, except:[:new]
   end
 
   devise_for :users
