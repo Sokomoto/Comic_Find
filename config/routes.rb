@@ -6,7 +6,13 @@ Rails.application.routes.draw do
       resource :favorites, only:[:create, :destroy]
       resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   	end
-      resources :users, except:[:new]
+      resources :users, except:[:new] do
+        #ユーザーが投稿したタイトル・レビューを表示させるルーティング
+        member do
+          get :postindex
+          get :postimpression
+        end
+      end
   end
 
   devise_for :users

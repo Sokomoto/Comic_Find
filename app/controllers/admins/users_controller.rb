@@ -1,5 +1,5 @@
 class Admins::UsersController < ApplicationController
-	before_action :find_user,only: [:show,:edit,:update]
+	before_action :find_user,only: [:show,:edit,:update,:postindex,:postimpression]
 
 	def index
 		@users = User.all
@@ -17,6 +17,15 @@ class Admins::UsersController < ApplicationController
     	else
       		render :edit
     	end
+  	end
+
+  	def postindex
+  		@comics = @user.comic
+  	end
+
+  	def postimpression
+  		@comic = @user.comic
+  		@impressions = @user.impression
   	end
 
 	private

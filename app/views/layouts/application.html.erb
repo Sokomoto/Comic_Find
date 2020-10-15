@@ -16,7 +16,11 @@
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <ul class="nav navbar-nav navbar-left">
-                <%= link_to 'ComicFind', root_path, class: "logo" %>
+                <% if user_signed_in? %>
+                  <%= link_to 'ComicFind', root_path, class: "logo" %>
+                <% elsif admin_signed_in? %>
+                  <%= link_to 'ComicFind', admins_path, class: "logo" %>
+                <% end %>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
