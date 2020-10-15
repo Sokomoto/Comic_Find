@@ -20,12 +20,11 @@ class Admins::UsersController < ApplicationController
   	end
 
   	def postindex
-  		@comics = @user.comic
+  		@comics = @user.comics
   	end
 
   	def postimpression
-  		@comic = @user.comic
-  		@impressions = @user.impression
+  		@impressions = @user.impressions
   	end
 
 	private

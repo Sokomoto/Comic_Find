@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+		    <% @impressions.each do |i| %>
+		    <%= attachment_image_tag i.user, :profile_image, size: '50x50' , fallback: "no_image.jpg" %>
+		    <%= i.user.name %>
+		    <%= truncate i.impression, length: 100 %>
+		    <br><%= link_to "続きを読む", "パス名が入ります" %>
+		    <% end %>
+		</div>
+	</div>
+</div>
