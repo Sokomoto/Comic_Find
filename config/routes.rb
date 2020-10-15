@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get 'comics', to:'comics#search'
   end
 
+  get 'admins/search' => "admins/search#search"
   get '/search' => "search#search"
 
 end

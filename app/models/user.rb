@@ -23,4 +23,9 @@ class User < ApplicationRecord
 	def inactive_message
 		self.is_status == "有効" ? super : :user_status_is_not_valid
 	end
+
+  def self.search(search)
+    return User.all unless search
+    User.find_by_sql(["select * from Users where name LIKE ?", "%#{search}%"])
+  end
 end
