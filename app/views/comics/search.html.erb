@@ -1,40 +1,45 @@
 <div class="container">
 	<div class="row">
-		<!-- タグ一覧 -->
-		<h3>タグ一覧</h3>
-		<% @tag_list.each do |list| %>
-			<%= link_to list.tag_name, tag_comics_path(tag_id: list.id) %>
-		<% end %>
+		<div class="col-xs-10">
+			<div class="taglist-border">
+				<!-- タグ一覧 -->
+				<h3>タグ一覧</h3>
+				<% @tag_list.each do |list| %>
+					<%= link_to list.tag_name, tag_comics_path(tag_id: list.id) %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 
 	<br>
 
 	<div class="row">
-		<div class="col-xs-5">
-			<h4>
-			タグが
-				<b>“<%= @tag.tag_name %>”</b>
-			のタイトル一覧
-			</h4>
-		</div>
-		<div class="col-xs-3">
-			<!-- ひとまずタグで絞り込んだ直後であれば作品詳細へ戻れるように -->
-			<%= link_to "前のページに戻る", :back, class: 'btn btn-info btn-block' %>
+		<div class="col-xs-10">
+			<div class="taglist-border">
+				<h4>
+				タグが
+					<b>“<%= @tag.tag_name %>”</b>
+				のタイトル一覧
+				</h4>
+			</div>
 		</div>
 	</div>
 
-	<table class="table table-hover table-inverse">
-	    <% @comics.each do |comic| %>
-	        <tr>
-	          <td>
-	            <%= attachment_image_tag comic, :image, size: '80x80' , fallback: "no_comic_image.png" %>
-
-	            <%= link_to comic_path(comic) do %>
-	            <%= comic.title %>
-	            <% end %>
-	          </td>
-	        </tr>
-	    <% end %>
-	</table>
+	<div class="row">
+		<div class="col-xs-10">
+		    <% @comics.each do |comic| %>
+	          <div class="tag-search">
+	            <div class="tag-search-inner">
+					<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+					<%= link_to comic_path(comic) do %>
+					<%= truncate comic.title, length: 15 %>
+					<% end %>
+					<h5><b>あらすじ・ストーリー</b></h5>
+					<div class="well"><%= truncate comic.explanation, length: 150 %></div>
+			    </div>
+			</div>
+		    <% end %>
+		</div>
+	</div>
 
 </div>

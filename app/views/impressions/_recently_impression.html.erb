@@ -4,11 +4,12 @@
 		    <% @impressions.each do |i| %>
 		    	<div class="recently-box">
 		        	<div class="recently-box-inner">
-					    <%= attachment_image_tag i.user, :profile_image, size: '50x50' , fallback: "no_image.jpg" %>
+					    <%= attachment_image_tag i.user, :profile_image, size: '40x40' , fallback: "no_image.jpg" %>
 					    <%= i.user.name %>
 					    <br>
-					    <%= truncate i.impression, length: 100 %>
-					    <br><%= link_to "続きを読む", "パス名が入ります" %>
+					    <h4><b><%= i.comic.title %></b></h4>
+					    <%= simple_format(truncate i.impression, length: 50) %>
+					    <br><%= link_to "続きを読む", comic_impression_path(i.comic, i) %>
 					</div>
 				</div>
 			<% end %>

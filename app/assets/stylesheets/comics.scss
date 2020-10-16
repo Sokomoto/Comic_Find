@@ -4,20 +4,24 @@
 
 .rank{
 	display: inline-flex;
-	width: 150px;
-	height: 200px;
-	margin: 5px 30px auto 0;
+	width: 170px;
+	height: 230px;
 }
 
 .rank-inner{
-	padding: 20px 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.rank-border{
+	border-bottom: 2px #ddd solid;
 }
 
 .rank-box{
 	width: 300px;
-	height: 950px;
-	margin: 20px auto 0;
-	border-radius: 0px;
+	height: 1350px;
 	border: 2px #ddd solid;
 }
 
@@ -26,7 +30,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 5px 40px;
 }
 
 .rank-right{
@@ -35,9 +38,38 @@
 	justify-content: center;
 	align-items: center;
 	width: 160px;
-	height: 160px;
+	height: 230px;
+	margin: 30px auto 0;
 }
 
 .rank-right-inner{
-	padding: 0px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 2px #ddd solid;
 }
+
+.comic-title-border{
+	border-bottom: 2px #ddd solid;
+}
+
+.comics-index-box{
+	width: 800px;
+	height: 330px;
+	margin: 10px 10px auto 0;
+	border-radius: 5px;
+	border-bottom: 2px #ddd solid;
+}
+
+.comics-index-box-inner{
+	padding: 20px 25px;
+}
+
+
+
+
+
+
+
+
