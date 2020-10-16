@@ -5,7 +5,9 @@
 				<!-- タグ一覧 -->
 				<h3>タグ一覧</h3>
 				<% @tag_list.each do |list| %>
-					<%= link_to list.tag_name, tag_comics_path(tag_id: list.id) %>
+					<div class="label label-default">
+						<%= link_to list.tag_name, tag_comics_path(tag_id: list.id),class: "taglink" %>
+					</div>
 				<% end %>
 			</div>
 		</div>

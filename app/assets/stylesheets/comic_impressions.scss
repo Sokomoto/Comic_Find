@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .impression-box {
   width: 600px;
   height: 500px;
@@ -14,13 +15,19 @@
   padding: 20px 25px;
 }
 
+.recently-scroll{
+  overflow: scroll;
+  white-space:nowrap;
+}
+
 .recently-box {
   display: inline-flex;
   width: 350px;
-  height: 300px;
+  height: 280px;
   margin: 10px 10px auto 0;
   border-radius: 5px;
   border: 2px #ddd solid;
+  overflow: auto;
 }
 
 .recently-box-inner {

@@ -27,7 +27,9 @@
     <div class="col-xs-10">
       <b>登録タグ :</b>
       <% @comic_tags.each do |tag| %>
-        <%= link_to tag.tag_name, tag_comics_path(tag_id: tag.id) %>
+        <div class="label label-default">
+          <%= link_to tag.tag_name, tag_comics_path(tag_id: tag.id),class: "taglink" %>
+        </div>
       <% end %>
     </div>
   </div>

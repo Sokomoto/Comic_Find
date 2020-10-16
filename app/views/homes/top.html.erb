@@ -1,14 +1,15 @@
 <div class="container">
 	<div class="row">
-
 		<div class="col-xs-11">
 			<div class="rank-border">
 				<h2>人気ランキング</h2>
 				<%= render 'comics/rank',comic: @comic %>
 			</div>
 		</div>
+	</div>
 
-		<div class="col-xs-10">
+	<div class="row">
+		<div class="col-xs-11">
 		    <h2>最近投稿されたレビュー</h2>
 		    <%= render 'impressions/recently_impression',i: @impressions %>
 		</div>
