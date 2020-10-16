@@ -1,30 +1,51 @@
 <div class="container">
   <div class="row">
-    <div class="text-right">
-      <%= link_to "新しいマンガを追加", new_comic_path, class: 'btn btn-default btn-lg pull-right' %>
-    </div>
-
-      <h2>人気ランキング</h2>
-      <%= render 'rank',comic: @comic %>
-
     <div class="col-xs-9">
-      <h2>マンガタイトル一覧</h2>
-      <table class="table table-hover">
-        <% @comics.each do |comic| %>
-            <tr>
-              <td>
-                <%= attachment_image_tag comic, :image, size: '80x80' , fallback: "no_comic_image.png" %>
-              </td>
-              <td>
-                <%= link_to comic_path(comic) do %>
-                <%= comic.title %>
-                <% end %>
-              </td>
-              <td><%= comic.explanation %></td>
-            </tr>
-        <% end %>
-      </table>
-
+      <div class="comic-title-border">
+        <h2>マンガタイトル一覧</h2>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to "新しいマンガを追加", new_comic_path, class: 'btn btn-info btn-block' %>
     </div>
   </div>
+
+    <div class="col-xs-9">
+        <% @comics.each do |comic| %>
+          <div class="comics-index-box">
+            <div class="comics-index-box-inner">
+              <%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+              <%= link_to comic_path(comic) do %>
+              <%= truncate comic.title, length: 15 %>
+              <% end %>
+              <!-- いいね数を表示したい -->
+              <!-- 登録されているタグを表示したい -->
+              <h5><b>あらすじ・ストーリー</b></h5>
+              <div class="well"><%= truncate comic.explanation, length: 150 %></div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+
+    <!-- いいね数に応じたランキングを表示 -->
+    <div class="col-xs-3">
+      <h2>人気ランキング</h2>
+      <div class="rank-box">
+        <div class="rank-box-inner">
+          <% @all_ranks.each.with_index(1) do |comic, i| %>
+            <div class="rank-right">
+              <div class="rank-right-inner">
+                <h4><%= i %>位</h4>
+                <%= link_to comic_path(comic) do %>
+                  <%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+                <% end %>
+                <br>
+                <b><%= truncate comic.title, length: 12 %></b>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
 </div>

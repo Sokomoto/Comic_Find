@@ -1,0 +1,59 @@
+<% if @users %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table">
+        <caption>ユーザー検索結果<small>(<%= @users.count %>件)</small></caption>
+        <thead>
+          <tr class="active">
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+                <td><%= link_to user.name,admins_user_path(user) %></td>
+                <td><%= user.email %></td>
+                <td><%= user.is_status %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<% elsif @comics %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table">
+        <caption>マンガタイトル検索結果<small>(<%= @comics.count %>件)</small></caption>
+        <thead>
+          <tr class="active">
+            <th>タイトルID</th>
+            <th>タイトル名</th>
+            <th>作品詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @comics.each do |comic| %>
+              <tr>
+                <td><%= comic.id %></td>
+                <td><%= comic.title %></td>
+                <td><%= link_to "作品情報とレビューへ移動",admins_comic_path(comic), class: 'btn btn-info btn-block' %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<% else %>
+
+  <h1 class="center">検索結果はありません</h1>
+
+<% end %>

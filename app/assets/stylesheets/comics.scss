@@ -2,3 +2,74 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.rank{
+	display: inline-flex;
+	width: 170px;
+	height: 230px;
+}
+
+.rank-inner{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.rank-border{
+	border-bottom: 2px #ddd solid;
+}
+
+.rank-box{
+	width: 300px;
+	height: 1350px;
+	border: 2px #ddd solid;
+}
+
+.rank-box-inner{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.rank-right{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 160px;
+	height: 230px;
+	margin: 30px auto 0;
+}
+
+.rank-right-inner{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 2px #ddd solid;
+}
+
+.comic-title-border{
+	border-bottom: 2px #ddd solid;
+}
+
+.comics-index-box{
+	width: 800px;
+	height: 330px;
+	margin: 10px 10px auto 0;
+	border-radius: 5px;
+	border-bottom: 2px #ddd solid;
+}
+
+.comics-index-box-inner{
+	padding: 20px 25px;
+}
+
+
+
+
+
+
+
+

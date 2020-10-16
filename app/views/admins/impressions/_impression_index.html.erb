@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <h3>ユーザーからのレビュー</h3>
+      <!--レビューの一覧ページへ飛べるようにする-->
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- レビューが一件もない場合はその旨を表示する-->
+          <% @impressions.each do |i| %>
+              <tr>
+                <td>
+                  <%= attachment_image_tag i.user, :profile_image, size: '50x50' , fallback: "no_image.jpg" %>
+                  <%= i.user.name %>
+                </td>
+                <td><%= truncate i.impression, length: 100 %>
+                    <br><%= link_to "続きを読む", admins_comic_impression_path(@comic, i) %>
+                </td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

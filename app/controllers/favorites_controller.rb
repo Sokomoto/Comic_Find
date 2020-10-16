@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
 
 	def create
 		comic = Comic.find(params[:comic_id])
-	    favorite = current_user.favorites.new(comic_id: comic.id)
+	    favorite = current_user.favorites.create(comic_id: comic.id)
 	    favorite.save
 	    redirect_to comic_path(comic)
 	end

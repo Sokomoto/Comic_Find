@@ -1,19 +1,31 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: {
-  sessions: 'admins/sessions'}
-  namespace :admin do
+  devise_for :admins
+  namespace :admins do
   	get '/' => "homes#top"
   	resources :comics do
-     resources :impressions
+      resource :favorites, only:[:create, :destroy]
+      resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
   	end
-    resources :users, except:[:new]
+      resources :users, except:[:new] do
+        #ユーザーが投稿したタイトル・レビューを表示させるルーティング
+        member do
+          get :postindex
+          get :postimpression
+        end
+      end
   end
 
   devise_for :users
   root to: 'homes#top'
   get '/users/:id/leave' => "users#leave"
   patch '/users/:id/hide' => "users#hide"
-  resources :users, except:[:new, :create]
+  resources :users, except:[:new, :create] do
+    #ユーザーが投稿したタイトル・レビューを表示させるルーティング
+    member do
+      get :postindex
+      get :postimpression
+    end
+  end
   resources :comics do
     resource :favorites, only:[:create, :destroy]
     resources :impressions, only:[:index, :show, :new, :create, :destroy, :edit, :update]
@@ -23,6 +35,7 @@ Rails.application.routes.draw do
     get 'comics', to:'comics#search'
   end
 
+  get 'admins/search' => "admins/search#search"
   get '/search' => "search#search"
 
 end

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <h2><%= @user.name %>さんのユーザー情報 </h2>
+    </div>
+  </div>
+
+  <div class="userinfo-margin">
+    <div class="row">
+      <p class="col-xs-2">ユーザーID</p>
+      <%= @user.id %>
+      <span class="btn-info btn-xs">
+        <%= @user.is_status %>ユーザー
+      </span>
+    </div>
+
+    <div class="row">
+      <p class="col-xs-2">ユーザー名</p>
+      <%= @user.name %>
+    </div>
+
+    <div class="row">
+      <p class="col-xs-2">メールアドレス</p>
+      <%= @user.email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <%= link_to "ユーザー情報を編集する",edit_admins_user_path(@user),class:"btn btn-info btn-block" %>
+    </div>
+    <!-- ユーザーの投稿したマンガ一覧とレビュー一覧の履歴ページがまだないので、保留。 -->
+    <div class="col-xs-3">
+      <%= link_to "追加したマンガタイトル履歴を見る",postindex_admins_user_path(@user.id),class:"btn btn-info btn-block" %>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to "投稿したレビュー履歴を見る",postimpression_admins_user_path(@user.id),class:"btn btn-info btn-block" %>
+    </div>
+  </div>
+
+</div>

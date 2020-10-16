@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+		<h2>追加したマンガタイトル一覧</h2>
+
+		<table class= "table table-bordered">
+			<thead>
+				<tr class="active">
+					<th>登録日</th>
+					<th>タイトル</th>
+					<th>作品詳細</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @comics.each do |comic| %>
+				<tr>
+					<td><%= comic.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+					<td><%= comic.title %></td>
+					<td><%= link_to "作品のページへ移動", comic_path(comic),class:"btn btn-info btn-block" %></td>
+				</tr>
+				<% end %>
+				<!-- kaminariのページネーション -->
+			</tbody>
+		</table>
+
+	</div>
+</div>

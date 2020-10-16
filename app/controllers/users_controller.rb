@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     	end
 	end
 
+	def postindex
+		@comics = @user.comics
+	end
+
+	def postimpression
+  		@impressions = @user.impressions
+	end
+
 	private
 
 	def user_params
