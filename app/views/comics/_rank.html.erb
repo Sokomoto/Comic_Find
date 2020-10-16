@@ -2,9 +2,15 @@
 	<div class="row">
 		<div class="col-xs-10">
 		    <% @all_ranks.each.with_index(1) do |comic, i| %>
-		    <%= i %>位
-		    <%= comic.title %>
-		    <%= attachment_image_tag comic, :image, size: '100x100' , fallback: "no_comic_image.png" %>
+			    <div class="rank">
+			        <div class="rank-inner">
+					    <%= i %>位
+					    <br>
+					    <%= comic.title %>
+					    <br>
+					    <%= attachment_image_tag comic, :image, size: '100x100' , fallback: "no_comic_image.png" %>
+					</div>
+				</div>
 		    <% end %>
 		</div>
 	</div>

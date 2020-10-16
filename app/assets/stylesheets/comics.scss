@@ -2,3 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.rank{
+	display: inline-flex;
+	width: 150px;
+	height: 200px;
+	margin: 5px 30px auto 0;
+}
+
+.rank-inner{
+	padding: 20px 25px;
+}
+
+.rank-box{
+	width: 300px;
+	height: 950px;
+	margin: 20px auto 0;
+	border-radius: 0px;
+	border: 2px #ddd solid;
+}
+
+.rank-box-inner{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 40px;
+}
+
+.rank-right{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 160px;
+	height: 160px;
+}
+
+.rank-right-inner{
+	padding: 0px 0px;
+}

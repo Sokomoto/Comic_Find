@@ -4,9 +4,6 @@
       <%= link_to "新しいマンガを追加", new_comic_path, class: 'btn btn-default btn-lg pull-right' %>
     </div>
 
-      <h2>人気ランキング</h2>
-      <%= render 'rank',comic: @comic %>
-
     <div class="col-xs-9">
       <h2>マンガタイトル一覧</h2>
       <table class="table table-hover">
@@ -24,7 +21,27 @@
             </tr>
         <% end %>
       </table>
-
     </div>
+
+    <div class="col-xs-3">
+      <div class="rank-box">
+        <div class="rank-box-inner">
+          <h2>人気ランキング</h2>
+          <% @all_ranks.each.with_index(1) do |comic, i| %>
+            <div class="rank-right">
+              <div class="rank-right-inner">
+                <%= i %>位
+                <br>
+                <%= comic.title %>
+                <br>
+                <%= attachment_image_tag comic, :image, size: '100x100' , fallback: "no_comic_image.png" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>

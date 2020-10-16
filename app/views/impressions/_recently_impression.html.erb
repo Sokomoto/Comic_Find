@@ -1,12 +1,17 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-10">
+		<div class="col-xs-12">
 		    <% @impressions.each do |i| %>
-		    <%= attachment_image_tag i.user, :profile_image, size: '50x50' , fallback: "no_image.jpg" %>
-		    <%= i.user.name %>
-		    <%= truncate i.impression, length: 100 %>
-		    <br><%= link_to "続きを読む", "パス名が入ります" %>
-		    <% end %>
+		    	<div class="recently-box">
+		        	<div class="recently-box-inner">
+					    <%= attachment_image_tag i.user, :profile_image, size: '50x50' , fallback: "no_image.jpg" %>
+					    <%= i.user.name %>
+					    <br>
+					    <%= truncate i.impression, length: 100 %>
+					    <br><%= link_to "続きを読む", "パス名が入ります" %>
+					</div>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
