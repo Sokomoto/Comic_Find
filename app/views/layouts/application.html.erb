@@ -34,7 +34,7 @@
                 <% if user_signed_in? %>
                   <li>
                     <%= form_tag(search_path,method: :get) do %>
-                    <%= text_field_tag :search,"",placeholder:"検索",class:"search-box" %>
+                    <%= text_field_tag :search,"",placeholder:"タイトル名で検索",class:"search-box" %>
                     <% end %>
                   </li>
                   <li><%= link_to 'マイページ', user_path(current_user) %></li>
@@ -52,7 +52,7 @@
                 <% else %>
                   <li>
                     <%= form_tag(search_path,method: :get) do %>
-                    <%= text_field_tag :search,"",placeholder:"検索",class:"search-box" %>
+                    <%= text_field_tag :search,"",placeholder:"タイトル名で検索",class:"search-box" %>
                     <% end %>
                   </li>
                   <li><%= link_to 'マンガタイトル一覧', comics_path %></li>
