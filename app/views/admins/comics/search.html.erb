@@ -6,7 +6,7 @@
 				<h3><b>タグ一覧</b></h3>
 				<% @tag_list.each do |list| %>
 					<div class="label label-default">
-						<%= link_to list.tag_name, tag_comics_path(tag_id: list.id),class: "taglink" %>
+						<%= link_to list.tag_name, tag_admins_comics_path(tag_id: list.id),class: "taglink" %>
 					</div>
 				<% end %>
 			</div>
@@ -33,7 +33,7 @@
 	          <div class="tag-search">
 	            <div class="tag-search-inner">
 					<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
-					<%= link_to comic_path(comic),class: "titlelink" do %>
+					<%= link_to admins_comic_path(comic),class: "titlelink" do %>
 					<b><%= truncate comic.title, length: 15 %></b>
 					<% end %>
 					<h5><b>あらすじ・ストーリー</b></h5>

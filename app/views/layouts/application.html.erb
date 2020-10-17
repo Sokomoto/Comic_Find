@@ -66,12 +66,20 @@
       </nav>
     </header>
 
-    <main>
+  <main>
+    <div class="container">
       <% if flash[:notice] %>
         <p><%= flash[:notice] %></p>
       <% end %>
       <%= yield %>
-    </main>
+    </div>
+  </main>
+
+    <footer class="footer">
+      <div class="container">
+
+      </div>
+    </footer>
 
   </body>
 </html>

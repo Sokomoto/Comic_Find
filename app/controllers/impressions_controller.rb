@@ -1,6 +1,8 @@
 class ImpressionsController < ApplicationController
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 	before_action :get_comic
 	before_action :get_impression, only:[:show, :edit, :update, :destroy]
+	before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def new
 		@impression = Impression.new
@@ -44,6 +46,12 @@ class ImpressionsController < ApplicationController
 		@impression = Impression.find(params[:id])
 	end
 
+	def correct_user
+		@user = @impression.user
+			unless current_user.id == @user.id
+				redirect_to comic_path(@comic)
+			end
+	end
 
 	def impression_params
   		params.require(:impression).permit(:impression)

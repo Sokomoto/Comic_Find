@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-xs-10">
       <!-- 漫画のタイトルを表示 -->
-      <h3><b><%= @comic.title %></b></h3>
+      <div class="comic-title-show">
+        <h3><b><%= @comic.title %></b></h3>
+      </div>
     </div>
   </div>
 
@@ -32,24 +34,36 @@
     </div>
 
     <!-- タグ機能 -->
-    <div class="col-xs-10">
-      <b>登録タグ :</b>
-      <% @comic_tags.each do |tag| %>
-        <div class="label label-default">
-          <%= link_to tag.tag_name, tag_comics_path(tag_id: tag.id),class: "taglink" %>
-        </div>
-      <% end %>
+    <div class="tag-comic-show">
+      <div class="col-xs-8">
+        <b>登録タグ :</b>
+        <br>
+        <% @comic_tags.each do |tag| %>
+          <div class="label label-default">
+            <%= link_to tag.tag_name, tag_admins_comics_path(tag_id: tag.id),class: "taglink" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="synopsis">
+      <div class="col-xs-10">
+        <h4 class="synopsis-border"><b>あらすじ・ストーリー紹介</b></h4>
+        <div class="well"><%= @comic.explanation %></div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-10">
-      <h4><b>ストーリー紹介</b></h4>
-      <div class="well"><%= @comic.explanation %></div>
+      <div class="user-review">
+        <h3><b>ユーザーからのレビュー</b></h3>
+      </div>
+      	<!-- ユーザーからのレビュー一覧を表示 -->
+        <%= render 'admins/impressions/impression_index', impressions: @impressions %>
     </div>
   </div>
-
-	<!-- ユーザーからのレビュー一覧を表示 -->
-  <%= render 'admins/impressions/impression_index', impressions: @impressions %>
 
 </div>

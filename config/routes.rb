@@ -35,6 +35,11 @@ Rails.application.routes.draw do
     get 'comics', to:'comics#search'
   end
 
+  #管理者側のタグで絞り込んだ投稿を表示するルーティング
+  resources :tags do
+    get 'admins/comics', to:'admins/comics#search'
+  end
+
   get 'admins/search' => "admins/search#search"
   get '/search' => "search#search"
 

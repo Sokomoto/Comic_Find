@@ -69,6 +69,23 @@
 
 .comics-index-box-inner{
 	padding: 20px 25px;
+.titlelink{
+	text-decoration: none;
+    color: #000000;
+	}
+}
+
+.tag-search-inner{
+	padding: 20px 25px;
+.titlelink{
+	text-decoration: none;
+    color: #000000;
+	}
+}
+
+.titlelink:hover{
+	cursor: pointer;
+	color: #00BFFF;
 }
 
 .label-default{
@@ -77,6 +94,24 @@
 	text-decoration: none;
     color: #ffffff;
 	}
+}
+
+.comic-title-show{
+	margin-bottom: 20px;
+}
+
+.synopsis{
+	margin-top: 15px;
+}
+
+.synopsis-border{
+	border-top: 2px #ddd solid;
+	padding-top: 20px;
+}
+
+.user-review{
+	border-bottom: 2px #ddd solid;
+	margin-bottom: 20px;
 }
 
 
