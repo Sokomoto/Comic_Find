@@ -21,7 +21,7 @@ class ComicsController < ApplicationController
 
 	def show
 		@comic = Comic.find(params[:id])
-		@impressions = Impression.where(comic_id: @comic.id)
+		@impressions = Impression.page(params[:page]).reverse_order.where(comic_id: @comic.id)
 		@comic_tags = @comic.tags
 	end
 

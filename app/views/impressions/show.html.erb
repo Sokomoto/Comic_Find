@@ -27,7 +27,7 @@
   	      <%= attachment_image_tag @user, :profile_image, size: '60x60' , fallback: "no_image.jpg" %>
           <%= @user.name %>
           <br>
-          <br>
+          <h4><b><%= @impression.comic.title %></b></h4>
           <div class="impression-text">
             <%= simple_format(@impression.impression) %>
           </div>
