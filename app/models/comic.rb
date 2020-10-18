@@ -22,8 +22,8 @@ class Comic < ApplicationRecord
 		end
 
 		new_tags.each do |new_name|
-			comic_tag = Tag.find_or_create_by(tag_name: new_name)
-			self.tags << comic_tag
+			new_tag = Tag.find_or_create_by(tag_name: new_name)
+			self.tags << new_tag
 		end
 	end
 
