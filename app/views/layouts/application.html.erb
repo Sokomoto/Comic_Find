@@ -3,6 +3,7 @@
   <head>
     <title>ComicFind</title>
     <script src="https://kit.fontawesome.com/47e1c7b983.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,21 +16,23 @@
         <div class="container">
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <ul class="nav navbar-nav navbar-left">
-                <% if user_signed_in? %>
+              <div class="header-title-logo">
+                <ul class="nav navbar-nav navbar-left">
+                  <% if user_signed_in? %>
+                    <%= link_to root_path do %>
+                      <%= image_tag 'logo.png',:size => '150x45'  %>
+                    <% end %>
+                  <% elsif admin_signed_in? %>
+                    <%= link_to admins_path do %>
+                      <%= image_tag 'logo.png',:size => '150x45'  %>
+                    <% end %>
+                  <% else %>
                   <%= link_to root_path do %>
-                    <%= image_tag 'logo.png',:size => '150x45'  %>
+                      <%= image_tag 'logo.png',:size => '150x45'  %>
+                    <% end %>
                   <% end %>
-                <% elsif admin_signed_in? %>
-                  <%= link_to admins_path do %>
-                    <%= image_tag 'logo.png',:size => '150x45'  %>
-                  <% end %>
-                <% else %>
-                <%= link_to root_path do %>
-                    <%= image_tag 'logo.png',:size => '150x45'  %>
-                  <% end %>
-                <% end %>
-              </ul>
+                </ul>
+              </div>
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
                   <li>
@@ -68,16 +71,47 @@
 
   <main>
     <div class="container">
-      <% if flash[:notice] %>
-        <p><%= flash[:notice] %></p>
-      <% end %>
       <%= yield %>
     </div>
   </main>
 
     <footer class="footer">
       <div class="container">
+        <div class="footer-logo">
+          <ul class="nav navbar-nav navbar-left">
+            <% if user_signed_in? %>
+              <%= link_to root_path do %>
+                <%= image_tag 'logo.png',:size => '150x45'  %>
+              <% end %>
+            <% elsif admin_signed_in? %>
+              <%= link_to admins_path do %>
+                <%= image_tag 'logo.png',:size => '150x45'  %>
+              <% end %>
+            <% else %>
+            <%= link_to root_path do %>
+                <%= image_tag 'logo.png',:size => '150x45'  %>
+              <% end %>
+            <% end %>
+          </ul>
 
+          <div class="footer-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to 'マイページ', user_path(current_user),class: "footerlink" %></li>
+              <li><%= link_to 'マンガタイトル一覧', comics_path,class: "footerlink" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path,class: "footerlink", method: :delete %></li>
+            <% elsif admin_signed_in? %>
+              <li><%= link_to 'マンガタイトル一覧', admins_comics_path,class: "footerlink" %></li>
+              <li><%= link_to 'ユーザー一覧', admins_users_path,class: "footerlink" %></li>
+              <li><%= link_to 'ログアウト', destroy_admin_session_path,class: "footerlink", method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'マンガタイトル一覧', comics_path,class: "footerlink" %></li>
+              <li><%= link_to '新規登録', new_user_registration_path,class: "footerlink" %></li>
+              <li><%= link_to 'ログイン', new_user_session_path,class: "footerlink" %></li>
+            <% end %>
+          </ul>
+        </div>
+        </div>
       </div>
     </footer>
 

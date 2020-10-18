@@ -34,6 +34,10 @@ body{
   margin-top:50px;
 }
 
+.header-title-logo{
+  margin-top: 5px;
+}
+
 .top-rank-border{
   border-bottom: 2px #ddd solid;
   padding: 0px 0px 20px;
@@ -60,6 +64,28 @@ main{
 
 .footer{
   margin-top: auto;
-	height: 60px;
+	height: 90px;
 	background-color: #696969;
 }
+
+.footer-logo{
+  margin-top: 25px;
+}
+
+
+.footer-menu{
+.footerlink{
+  text-decoration: none;
+  color: #ffffff;
+  }
+}
+
+.footerlink:hover{
+  cursor: pointer;
+  color: #000000;
+}
+
+
+
+
+

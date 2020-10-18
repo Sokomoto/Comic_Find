@@ -9,7 +9,7 @@
 							<%= link_to comic_path(comic) do %>
 								<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
 							<% end %>
-						    <b><%= truncate comic.title, length: 12 %></b>
+						    <b><%= truncate comic.title, length: 10 %></b>
 						</div>
 					</div>
 			    <% end %>
