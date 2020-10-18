@@ -9,7 +9,7 @@ class Comic < ApplicationRecord
   	has_many :tags, through: :tag_maps
 
 	def favorited_by?(user_id)
-    	favorites.where(user_id: user.id).exists?
+    	favorites.where(user_id: user_id).exists?
   	end
 
 	def save_tags(tags)
