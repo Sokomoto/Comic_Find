@@ -37,6 +37,18 @@ body{
   margin-top: 5px;
 }
 
+.new-user-signin{
+.new-signin-link{
+  text-decoration: none;
+  color: #1E90FF;
+  }
+}
+
+.new-signin-link:hover{
+  cursor: pointer;
+  color: #FFA500;
+}
+
 .top-rank-border{
   border-bottom: 2px #ddd solid;
   padding: 0px 0px 20px;

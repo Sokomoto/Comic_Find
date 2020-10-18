@@ -1,12 +1,14 @@
 <div class="container">
 	<% unless user_signed_in? %>
 		<div class="row">
-			<div class="col-xs-12">
-				<h3><b>読みたいマンガを見つけるサイト</b></h3>
-				<p>ようこそ、Comic Findへ！<br>
-				このサイトは、マンガのレビュー投稿サイトになります。<br>
-				会員ユーザーでない方もマンガ情報・他のユーザーレビューの閲覧はできますが、<br>
-				マンガタイトル・レビューを投稿するには<%= link_to '会員登録',new_user_registration_path %>が必要になります。</p></p>
+			<div class="new-user-signin">
+				<div class="col-xs-12">
+					<h3><b>読みたいマンガを見つけるサイト</b></h3>
+					<p>ようこそ、Comic Findへ！<br>
+					このサイトは、マンガのレビュー投稿サイトになります。<br>
+					会員ユーザーでない方もマンガ情報・他のユーザーレビューの閲覧はできますが、<br>
+					マンガタイトル・レビューを投稿するには<b><%= link_to '会員ユーザー登録',new_user_registration_path,class: "new-signin-link" %></b>が必要になります。</p></p>
+				</div>
 			</div>
 		</div>
 	<% end %>

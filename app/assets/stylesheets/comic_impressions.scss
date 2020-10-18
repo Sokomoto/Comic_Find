@@ -38,6 +38,15 @@
 
 .recently-box-inner {
   padding: 20px 25px;
+  .read-more-link{
+    text-decoration: none;
+    color: #A9A9A9;
+  }
+}
+
+.read-more-link:hover{
+  cursor: pointer;
+  color: #FFA500;
 }
 
 .impression-index-box{
@@ -50,5 +59,14 @@
 
 .impression-index-box-inner{
   padding: 20px 25px;
+  .read-more-link-index{
+    text-decoration: none;
+    color: #A9A9A9;
+    }
+}
+
+.read-more-link-index:hover{
+  cursor: pointer;
+  color: #FFA500;
 }
 
