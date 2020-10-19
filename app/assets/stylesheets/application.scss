@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+body{
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.center{
+  text-align:center;
+}
+
+ #container{
+  width:100%;
+  height: 350px;
+  display:relative;
+  margin-top:50px;
+}
+
+.header-title-logo{
+  margin-top: 5px;
+}
+
+.new-user-signin{
+.new-signin-link{
+  text-decoration: none;
+  color: #1E90FF;
+  }
+}
+
+.new-signin-link:hover{
+  cursor: pointer;
+  color: #FFA500;
+}
+
+.top-rank-border{
+  border-bottom: 2px #ddd solid;
+  padding: 0px 0px 20px;
+  margin: 0px 0px 40px 0px;
+}
+
+.top-recintly-border{
+  border-bottom: 2px #ddd solid;
+  padding: 0px 0px 40px 0px;
+  margin: 0px 0px 40px 0px
+}
+
+.top-taglist-border{
+  border-bottom: 2px #ddd solid;
+  padding: 0 0 10px;
+  margin: 20px 0px 60px 0px;
+}
+
+main{
+  flex: 1;
+  min-height: 1px;
+  margin-bottom: 50px;
+}
+
+.footer{
+  margin-top: auto;
+	height: 90px;
+	background-color: #696969;
+}
+
+.footer-logo{
+  margin-top: 25px;
+}
+
+
+.footer-menu{
+.footerlink{
+  text-decoration: none;
+  color: #ffffff;
+  }
+}
+
+.footerlink:hover{
+  cursor: pointer;
+  color: #000000;
+}
+
+
+
+
+

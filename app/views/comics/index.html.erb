@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <div class="comic-title-border">
+        <h2><b>マンガタイトル一覧</b></h2>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="new-comic-botann">
+        <%= link_to "新しいマンガを追加", new_comic_path, class: 'btn btn-info btn-block' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">
+        <% @comics.each do |comic| %>
+          <div class="comics-index-box">
+            <div class="comics-index-box-inner">
+              <div class="col-xs-2">
+                <%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+              </div>
+              <div class="col-xs-8">
+                <%= link_to comic_path(comic),class: "titlelink-index" do %>
+                <h4><b><%= truncate comic.title, length: 15 %></b></h4>
+                <% end %>
+              </div>
+              <div class="col-xs-8">
+                <b>作者 : <%= truncate comic.author, length: 15 %></b>
+              </div>
+              <div class="col-xs-12">
+                <h5><b>あらすじ・ストーリー</b></h5>
+                <div class="well"><%= truncate comic.explanation, length: 150 %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @comics %>
+    </div>
+
+    <!-- いいね数に応じたランキングを表示 -->
+    <div class="col-xs-3">
+      <h2><b>人気ランキング</b></h2>
+      <div class="rank-box">
+        <div class="rank-box-inner">
+          <% @all_ranks.each.with_index(1) do |comic, i| %>
+            <div class="rank-right">
+              <div class="rank-right-inner">
+                <h4><%= i %>位</h4>
+                <%= link_to comic_path(comic) do %>
+                  <%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+                <% end %>
+                <br>
+                <b><%= truncate comic.title, length: 12 %></b>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

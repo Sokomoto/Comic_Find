@@ -1,2 +1,0 @@
-class ComicImpression < ApplicationRecord
-end

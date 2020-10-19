@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_033432) do
+ActiveRecord::Schema.define(version: 2020_10_18_090118) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 2020_07_19_033432) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "comic_impressions", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "comic_id"
-    t.text "impression"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comics", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
@@ -39,20 +31,33 @@ ActiveRecord::Schema.define(version: 2020_07_19_033432) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "author"
   end
 
-  create_table "consideration_comments", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "consideration_id"
-    t.text "comment"
+    t.integer "comic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "considerations", force: :cascade do |t|
+  create_table "impressions", force: :cascade do |t|
     t.integer "user_id"
-    t.string "title"
-    t.text "consideration"
+    t.integer "comic_id"
+    t.text "impression"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "comic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_07_19_033432) do
     t.boolean "is_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

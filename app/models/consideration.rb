@@ -1,2 +1,0 @@
-class Consideration < ApplicationRecord
-end

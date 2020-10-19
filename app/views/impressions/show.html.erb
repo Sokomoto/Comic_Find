@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-3">
+  		<h3><b><%= @comic.title %></b></h3>
+    </div>
+  </div>
+
+  <div class="row">
+		<div class="col-xs-3">
+			<%= link_to "作品情報とレビュー一覧に戻る", comic_path(@comic), class: 'btn btn-info btn-block' %>
+    </div>
+    <!-- 投稿したuser本人以外には編集と削除ボタンは非表示 -->
+    <% if user_signed_in? && current_user.id == @impression.user_id %>
+      <div class="col-xs-2">
+        <%= link_to "レビュー内容を編集", edit_comic_impression_path(@comic, @impression), class: 'btn btn-info btn-block' %>
+      </div>
+      <div class="col-xs-2">
+        <%= link_to "レビュー内容を削除",comic_impression_path(@comic, @impression), method: :delete,"data-confirm" => "本当に消しますか?", class:"btn btn-danger" %>
+  	  </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="impression-box">
+        <div class="impression-box-inner">
+  	      <%= attachment_image_tag @user, :profile_image, size: '60x60' , fallback: "no_image.jpg" %>
+          <%= @user.name %>
+          <br>
+          <h4><b><%= @impression.comic.title %></b></h4>
+          <div class="impression-text">
+            <%= simple_format(@impression.impression) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

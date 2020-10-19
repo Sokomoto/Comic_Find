@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+		<h2>投稿したレビュー一覧</h2>
+
+		<table class= "table table-bordered">
+			<thead>
+				<tr class="active">
+					<th>投稿日</th>
+					<th>レビューしたタイトル</th>
+					<th>レビュー詳細</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @impressions.each do |i| %>
+				<tr>
+					<td><%= i.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+					<td><%= i.comic.title %></td>
+					<td><%= link_to "レビュー詳細を見る", admins_comic_impression_path(i.comic, i),class:"btn btn-info btn-block" %></td>
+				</tr>
+				<% end %>
+				<!-- kaminariのページネーション -->
+			</tbody>
+		</table>
+
+	</div>
+</div>

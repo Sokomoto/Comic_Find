@@ -1,0 +1,10 @@
+<h3 class="center"><b>本当に退会しますか？</b></h3>
+<p class="center">退会すると、会員登録情報や</br>
+投稿されたマンガ及びレビューが閲覧できなくなります。</br>
+退会する場合は、「退会する」をクリックして下さい。</p>
+
+
+<div class="center">
+  <%= link_to "退会しない",user_path(@user),class:"btn btn-primary" %>
+  <%= link_to "退会する","/users/#{@user.id}/hide" ,method: :patch,class:"btn btn-danger" %>
+</div>

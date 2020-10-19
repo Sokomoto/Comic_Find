@@ -1,0 +1,24 @@
+<div class="box">
+  <div class="box-inner">
+
+
+    <h2>管理者ログイン</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="box-email">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="box-password">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="box-sign_in">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

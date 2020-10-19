@@ -1,0 +1,19 @@
+<div class= "container">
+	<div class="row">
+		<h3>登録情報編集</h3>
+
+			<%= form_for(@user) do |f| %>
+
+			  <%= render 'devise/shared/error_messages', resource: @user %>
+
+			  <%= render 'user_form', f: f%>
+
+			  <div class="actions row">
+			    <%= f.submit "編集内容を保存する",class:"btn btn-info" %>
+			    <%= link_to "退会する","/users/#{@user.id}/leave" ,class: "btn btn-danger" %>
+			  </div>
+
+			<% end %>
+
+	</div>
+</div>

@@ -1,1 +1,49 @@
-トップページです
+<div class="container">
+	<% unless user_signed_in? %>
+		<div class="row">
+			<div class="new-user-signin">
+				<div class="col-xs-12">
+					<h3><b>読みたいマンガを見つけるサイト</b></h3>
+					<p>ようこそ、Comic Findへ！<br>
+					このサイトは、マンガのレビュー投稿サイトになります。<br>
+					ユーザーでない方もマンガ情報・他のユーザーが投稿したレビューの閲覧はできますが、<br>
+					マンガタイトル・レビューを投稿するには<b><%= link_to '新規ユーザー登録',new_user_registration_path,class: "new-signin-link" %></b>が必要になります。</p></p>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="row">
+		<div class="col-xs-11">
+			<div class="top-rank-border">
+				<h2><b>人気ランキング</b></h2>
+				<%= render 'comics/rank',comic: @comic %>
+			</div>
+		</div>
+	</div>
+
+	<div class="top-recintly-border">
+		<div class="row">
+			<div class="col-xs-11">
+			    <h2><b>最近投稿されたレビュー</b></h2>
+			    	<%= render 'impressions/recently_impression',i: @impressions %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-11">
+		    <h3><b>登録されているタグから探す</b></h3>
+		    	<div class="top-taglist-border">
+				<!-- タグ一覧 -->
+				<h4><b>タグ一覧</b></h4>
+				<% @tag_list.each do |list| %>
+					<div class="label label-default">
+						<%= link_to list.tag_name, tag_comics_path(tag_id: list.id),class: "taglink" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+</div>
