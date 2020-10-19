@@ -22,7 +22,7 @@ class Admins::ComicsController < ApplicationController
 		tag_list = params[:comic][:tag_name].split(',')
     	@comic.update(comic_params)
     	@comic.save_tags(tag_list)
-      	redirect_to admins_comic_path(@comic)
+      	redirect_to admins_comic_path(@comic.id)
 	end
 
 	def search

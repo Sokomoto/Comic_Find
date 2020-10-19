@@ -4,7 +4,7 @@
             <div class="d-flex align-items-center">
               <h2>作品情報を編集する</h2>
             </div>
-            <%= form_for @comic do |f| %>
+            <%= form_for @comic,url: admins_comic_path ,method: :patch do |f| %>
                 <%= f.label :image, '作品の画像' %>
                     <div class="form-group">
                     <%= f.attachment_field :image %>
