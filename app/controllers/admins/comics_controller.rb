@@ -1,4 +1,5 @@
 class Admins::ComicsController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		@tag_list = Tag.all
@@ -7,7 +8,7 @@ class Admins::ComicsController < ApplicationController
 
 	def show
 		@comic = Comic.find(params[:id])
-		@impressions = Impression.where(comic_id: @comic.id)
+		@impressions = Impression.page(params[:page]).reverse_order.where(comic_id: @comic.id)
 		@comic_tags = @comic.tags
 	end
 
@@ -44,7 +45,7 @@ class Admins::ComicsController < ApplicationController
 	private
 
 	def comic_params
-  		params.require(:comic).permit(:image, :title, :explanation)
+  		params.require(:comic).permit(:image, :title, :author, :explanation)
   	end
 
 end

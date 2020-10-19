@@ -1,5 +1,5 @@
 class ComicsController < ApplicationController
-	#before_action :correct_user, only: [:edit,:update]
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
 	def new
 		@comic = Comic.new
@@ -15,13 +15,13 @@ class ComicsController < ApplicationController
 	end
 
 	def index
-    	@comics = Comic.all
+    	@comics = Comic.page(params[:page]).reverse_order
 		@all_ranks = Comic.find(Favorite.group(:comic_id).order('count(comic_id) desc').limit(5).pluck(:comic_id))
 	end
 
 	def show
 		@comic = Comic.find(params[:id])
-		@impressions = Impression.where(comic_id: @comic.id)
+		@impressions = Impression.page(params[:page]).reverse_order.where(comic_id: @comic.id)
 		@comic_tags = @comic.tags
 	end
 
@@ -54,13 +54,7 @@ class ComicsController < ApplicationController
 	private
 
 	def comic_params
-  	params.require(:comic).permit(:image, :title, :explanation)
+  	params.require(:comic).permit(:image, :title, :author, :explanation)
   	end
 
-  	def correct_user
-    @comic = current_user.comics.find_by(id: params[:id])
-      unless @comic
-      redirect_to comics_path
-      end
-  	end
 end

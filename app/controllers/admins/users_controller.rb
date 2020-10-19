@@ -1,4 +1,5 @@
 class Admins::UsersController < ApplicationController
+  before_action :authenticate_admin!
 	before_action :find_user,only: [:show,:edit,:update,:postindex,:postimpression]
 
 	def index

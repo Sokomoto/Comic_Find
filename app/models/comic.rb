@@ -9,7 +9,7 @@ class Comic < ApplicationRecord
   	has_many :tags, through: :tag_maps
 
 	def favorited_by?(user_id)
-    	favorites.where(user_id: user.id).exists?
+    	favorites.where(user_id: user_id).exists?
   	end
 
 	def save_tags(tags)
@@ -22,8 +22,8 @@ class Comic < ApplicationRecord
 		end
 
 		new_tags.each do |new_name|
-			comic_tag = Tag.find_or_create_by(tag_name: new_name)
-			self.tags << comic_tag
+			new_tag = Tag.find_or_create_by(tag_name: new_name)
+			self.tags << new_tag
 		end
 	end
 

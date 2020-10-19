@@ -15,13 +15,17 @@
   </div>
 
   <div class="row">
-    <div class="impression-box">
-      <div class="impression-box-inner">
-	      <%= attachment_image_tag @user, :profile_image, size: '60x60' , fallback: "no_image.jpg" %>
-        <%= @user.name %>
-        <br>
-        <br>
-	      <%= @impression.impression %>
+    <div class="col-xs-12">
+      <div class="impression-box">
+        <div class="impression-box-inner">
+  	      <%= attachment_image_tag @user, :profile_image, size: '60x60' , fallback: "no_image.jpg" %>
+          <%= @user.name %>
+          <br>
+          <br>
+          <div class="impression-text">
+  	       <%= @impression.impression %>
+         </div>
+        </div>
       </div>
     </div>
   </div>

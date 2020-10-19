@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10">
-      <h3>ユーザーからのレビュー</h3>
       <!--レビューの一覧ページへ飛べるようにする-->
         <% @impressions.each do |i| %>
           <div class="impression-index-box">
@@ -11,10 +10,11 @@
               <br>
               <h4><b><%= i.comic.title %></b></h4>
               <%= truncate i.impression, length: 100 %>
-              <br><%= link_to "続きを読む", comic_impression_path(@comic, i) %>
+              <br><%= link_to "続きを読む", comic_impression_path(@comic, i),class: "read-more-link-index" %>
             </div>
           </div>
         <% end %>
+        <%= paginate @impressions %>
     </div>
   </div>
 </div>

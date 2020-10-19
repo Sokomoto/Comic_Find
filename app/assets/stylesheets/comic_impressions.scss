@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .impression-box {
   width: 600px;
   height: 500px;
@@ -11,20 +12,41 @@
 }
 
 .impression-box-inner {
-  padding: 20px 25px;
+  padding: 20px 50px;
+}
+
+.impression-text{
+  width: 500px;
+  height: 370px;
+  overflow: auto;
+}
+
+.recently-scroll{
+  overflow: scroll;
+  white-space:nowrap;
 }
 
 .recently-box {
   display: inline-flex;
   width: 350px;
-  height: 300px;
+  height: 280px;
   margin: 10px 10px auto 0;
   border-radius: 5px;
   border: 2px #ddd solid;
+  overflow: auto;
 }
 
 .recently-box-inner {
   padding: 20px 25px;
+  .read-more-link{
+    text-decoration: none;
+    color: #A9A9A9;
+  }
+}
+
+.read-more-link:hover{
+  cursor: pointer;
+  color: #FFA500;
 }
 
 .impression-index-box{
@@ -37,5 +59,14 @@
 
 .impression-index-box-inner{
   padding: 20px 25px;
+  .read-more-link-index{
+    text-decoration: none;
+    color: #A9A9A9;
+    }
+}
+
+.read-more-link-index:hover{
+  cursor: pointer;
+  color: #FFA500;
 }
 

@@ -4,7 +4,7 @@
             <div class="d-flex align-items-center">
               <h2>作品情報を編集する</h2>
             </div>
-            <%= form_for @comic do |f| %>
+            <%= form_for @comic,url: admins_comic_path ,method: :patch do |f| %>
                 <%= f.label :image, '作品の画像' %>
                     <div class="form-group">
                     <%= f.attachment_field :image %>
@@ -17,6 +17,13 @@
                         <%= f.text_field :title, class: 'form-control' %>
                         <small id="title-tip" class="form-text text-muted">
                             タイトルを入力してください。
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :author, '作者名' %>
+                        <%= f.text_field :author, class: 'form-control' %>
+                        <small id="title-tip" class="form-text text-muted">
+                            投稿する作品の作者名を入力してください。
                         </small>
                     </div>
                     <div class="form-group">

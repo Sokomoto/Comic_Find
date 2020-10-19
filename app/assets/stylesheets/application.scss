@@ -16,6 +16,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body{
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
 .center{
   text-align:center;
 }
@@ -26,3 +32,71 @@
   display:relative;
   margin-top:50px;
 }
+
+.header-title-logo{
+  margin-top: 5px;
+}
+
+.new-user-signin{
+.new-signin-link{
+  text-decoration: none;
+  color: #1E90FF;
+  }
+}
+
+.new-signin-link:hover{
+  cursor: pointer;
+  color: #FFA500;
+}
+
+.top-rank-border{
+  border-bottom: 2px #ddd solid;
+  padding: 0px 0px 20px;
+  margin: 0px 0px 40px 0px;
+}
+
+.top-recintly-border{
+  border-bottom: 2px #ddd solid;
+  padding: 0px 0px 40px 0px;
+  margin: 0px 0px 40px 0px
+}
+
+.top-taglist-border{
+  border-bottom: 2px #ddd solid;
+  padding: 0 0 10px;
+  margin: 20px 0px 60px 0px;
+}
+
+main{
+  flex: 1;
+  min-height: 1px;
+  margin-bottom: 50px;
+}
+
+.footer{
+  margin-top: auto;
+	height: 90px;
+	background-color: #696969;
+}
+
+.footer-logo{
+  margin-top: 25px;
+}
+
+
+.footer-menu{
+.footerlink{
+  text-decoration: none;
+  color: #ffffff;
+  }
+}
+
+.footerlink:hover{
+  cursor: pointer;
+  color: #000000;
+}
+
+
+
+
+

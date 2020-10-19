@@ -1,17 +1,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-10">
-		    <% @all_ranks.each.with_index(1) do |comic, i| %>
-			    <div class="rank">
-			        <div class="rank-inner">
-					    <h4><%= i %>位</h4>
-						<%= link_to comic_path(comic) do %>
-							<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
-						<% end %>
-					    <b><%= truncate comic.title, length: 12 %></b>
+			<div class="rank-scroll">
+			    <% @all_ranks.each.with_index(1) do |comic, i| %>
+				    <div class="rank">
+				        <div class="rank-inner">
+						    <h4><%= i %>位</h4>
+							<%= link_to comic_path(comic) do %>
+								<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+							<% end %>
+						    <b><%= truncate comic.title, length: 10 %></b>
+						</div>
 					</div>
-				</div>
-		    <% end %>
+			    <% end %>
+			</div>
 		</div>
 	</div>
 </div>

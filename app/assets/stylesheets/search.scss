@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .search-box{
-  width:220px;
+  width:250px;
   margin: 15px;
 }
 
@@ -37,4 +37,18 @@
 
 .title-search-inner{
 	padding: 20px 25px;
+.titlelink{
+	text-decoration: none;
+    color: #000000;
+	}
 }
+
+.titlelink:hover{
+	cursor: pointer;
+	color: #FFA500;
+}
+
+.tag-comic-show{
+	margin-top: 90px ;
+}
+

@@ -2,11 +2,14 @@
   <div class="row">
     <div class="col-xs-10">
       <!-- 漫画のタイトルを表示 -->
-      <h3><b><%= @comic.title %></b></h3>
+      <div class="comic-title-show">
+        <h3><b><%= @comic.title %></b></h3>
+      </div>
     </div>
   </div>
 
   <div class="row">
+
     <!-- 漫画の画像を表示 -->
     <div class="col-xs-2">
       <%= attachment_image_tag @comic, :image, size: '150x200' , fallback: "no_comic_image.png" %>
@@ -23,23 +26,44 @@
       <%= link_to "このマンガの情報を編集", edit_comic_path(@comic), class: 'btn btn-info btn-block' %>
     </div>
 
+    <!-- 作者の名前を表示 -->
+    <div class="author-name">
+      <div class="col-xs-3">
+        <b>作者 : <%= @comic.author %></b>
+      </div>
+    </div>
+
     <!-- タグ機能 -->
-    <div class="col-xs-10">
-      <b>登録タグ :</b>
-      <% @comic_tags.each do |tag| %>
-        <%= link_to tag.tag_name, tag_comics_path(tag_id: tag.id) %>
-      <% end %>
+    <div class="tag-comic-show">
+      <div class="col-xs-8">
+        <b>登録タグ :</b>
+        <br>
+        <% @comic_tags.each do |tag| %>
+          <div class="label label-default">
+            <%= link_to tag.tag_name, tag_comics_path(tag_id: tag.id),class: "taglink" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="synopsis">
+      <div class="col-xs-10">
+        <h4 class="synopsis-border"><b>あらすじ・ストーリー</b></h4>
+        <div class="well"><%= @comic.explanation %></div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-10">
-      <h4><b>ストーリー紹介</b></h4>
-      <%= @comic.explanation %>
+      <div class="user-review">
+        <h3><b>ユーザーからのレビュー</b></h3>
+      </div>
+        <!-- ユーザーからのレビュー一覧を表示 -->
+        <%= render 'impressions/impression_index', impressions: @impressions %>
     </div>
   </div>
-
-	<!-- ユーザーからのレビュー一覧を表示 -->
-  <%= render 'impressions/impression_index', impressions: @impressions %>
 
 </div>
