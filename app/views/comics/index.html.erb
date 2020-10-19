@@ -22,11 +22,11 @@
               </div>
               <div class="col-xs-8">
                 <%= link_to comic_path(comic),class: "titlelink-index" do %>
-                <h4><b><%= truncate comic.title, length: 15 %></b></h4>
+                <h4><b><%= comic.title %></b></h4>
                 <% end %>
               </div>
               <div class="col-xs-8">
-                <b>作者 : <%= truncate comic.author, length: 15 %></b>
+                <b>作者 : <%= truncate comic.author %></b>
               </div>
               <div class="col-xs-12">
                 <h5><b>あらすじ・ストーリー</b></h5>
