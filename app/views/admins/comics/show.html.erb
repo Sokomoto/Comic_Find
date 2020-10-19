@@ -18,10 +18,10 @@
     <div class="col-xs-2">
       <% if @comic.favorited_by?(current_user) %>
           <i class="fas fa-thumbs-up" aria-hidden="true" style="color: #0072BC;"></i>
-          <%= @comic.favorites.count %> いいね！
+          <b><%= @comic.favorites.count %> いいね！</b>
       <% else %>
           <i class="fas fa-thumbs-up-o" aria-hidden="true"></i>
-          <%= @comic.favorites.count %> いいね！
+          <b><%= @comic.favorites.count %> いいね！</b>
       <% end %>
     </div>
 
@@ -31,6 +31,13 @@
 
     <div class="col-xs-3">
       <%= link_to "このマンガを削除", admins_comic_path(@comic, @impression), method: :delete,"data-confirm" => "本当に消しますか?", class: 'btn btn-danger' %>
+    </div>
+
+    <!-- 作者の名前を表示 -->
+    <div class="author-name">
+      <div class="col-xs-3">
+        <b>作者 : <%= @comic.author %></b>
+      </div>
     </div>
 
     <!-- タグ機能 -->

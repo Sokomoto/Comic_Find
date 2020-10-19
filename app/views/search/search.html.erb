@@ -1,29 +1,40 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
+<div class="container">
+	<div class="row">
+	  <div class="col-md-8 col-md-offset-2">
 
-    <% if @comics %>
-    <div class="search-result">
-      <h3><b>検索結果</b><small> (<%= @comics.count %>件)</small></h3>
-  	</div>
+	    <% if @comics %>
+	    <div class="search-result">
+	      <h3><b>検索結果</b><small> (<%= @comics.count %>件)</small></h3>
+	  	</div>
 
-		<% @comics.each do |comic| %>
-			<div class="title-search">
-				<div class="title-search-inner">
-					<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
-					<%= link_to comic_path(comic),class: "titlelink" do %>
-					<b><%= truncate comic.title, length: 15 %></b>
-					<% end %>
-					<h5><b>あらすじ・ストーリー</b></h5>
-					<div class="well"><%= truncate comic.explanation, length: 150 %></div>
+			<% @comics.each do |comic| %>
+				<div class="title-search">
+					<div class="title-search-inner">
+						<div class="col-xs-2">
+							<%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
+						</div>
+						<div class="col-xs-8">
+							<%= link_to comic_path(comic),class: "titlelink" do %>
+							<h4><b><%= truncate comic.title, length: 15 %></b></h4>
+							<% end %>
+						</div>
+						<div class="col-xs-8">
+                			<b>作者 : <%= truncate comic.author, length: 15 %></b>
+              			</div>
+              			<div class="col-xs-12">
+							<h5><b>あらすじ・ストーリー</b></h5>
+							<div class="well"><%= truncate comic.explanation, length: 150 %></div>
+						</div>
+					</div>
 				</div>
-			</div>
+			<% end %>
+
+		<% else %>
+
+			<h1 class="center">検索結果はありません</h1>
+
 		<% end %>
 
-	<% else %>
-
-		<h1 class="center">検索結果はありません</h1>
-
-	<% end %>
-
-  </div>
+	  </div>
+	</div>
 </div>

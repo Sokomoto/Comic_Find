@@ -58,6 +58,10 @@
 	border-bottom: 2px #ddd solid;
 }
 
+.new-comic-botann{
+	margin-top: 20px;
+}
+
 .comics-index-box{
 	width: 800px;
 	height: 330px;
@@ -68,21 +72,26 @@
 
 .comics-index-box-inner{
 	padding: 20px 25px;
-.titlelink{
+.titlelink-index{
 	text-decoration: none;
     color: #000000;
 	}
+}
+
+.titlelink-index:hover{
+	cursor: pointer;
+	color: #FFA500;
 }
 
 .tag-search-inner{
 	padding: 20px 25px;
-.titlelink{
+.titlelink-tagsearch{
 	text-decoration: none;
     color: #000000;
 	}
 }
 
-.titlelink:hover{
+.titlelink-tagsearch:hover{
 	cursor: pointer;
 	color: #FFA500;
 }

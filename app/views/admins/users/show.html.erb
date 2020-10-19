@@ -23,6 +23,12 @@
       <p class="col-xs-2">メールアドレス</p>
       <%= @user.email %>
     </div>
+
+    <div class="row">
+      <p class="col-xs-2">プロフィール画像</p>
+      <%= attachment_image_tag @user, :profile_image, size: '100x100' , fallback: "no_image.jpg" %>
+    </div>
+
   </div>
 
   <div class="row">

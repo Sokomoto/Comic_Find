@@ -2,12 +2,12 @@
   <% if @comic.favorited_by?(current_user) %>
     <%= link_to comic_favorites_path(@comic), method: :delete do %>
       <i class="fas fa-thumbs-up" aria-hidden="true" style="color: #0072BC;"></i>
-      <%= @comic.favorites.count %> いいね！
+      <b><%= @comic.favorites.count %> いいね！</b>
     <% end %>
   <% else %>
     <%= link_to comic_favorites_path(@comic), method: :post do %>
       <i class="fas fa-thumbs-up-o" aria-hidden="true"></i>
-      <%= @comic.favorites.count %> いいね！
+      <b><%= @comic.favorites.count %> いいね！</b>
     <% end %>
   <% end %>
 </div>

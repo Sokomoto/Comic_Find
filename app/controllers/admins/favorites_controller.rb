@@ -1,4 +1,5 @@
 class Admins::FavoritesController < ApplicationController
+	before_action :authenticate_admin!
 
 	def create
 		comic = Comic.find(params[:comic_id])

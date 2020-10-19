@@ -6,7 +6,9 @@
       </div>
     </div>
     <div class="col-xs-3">
-      <%= link_to "新しいマンガを追加", new_comic_path, class: 'btn btn-info btn-block' %>
+      <div class="new-comic-botann">
+        <%= link_to "新しいマンガを追加", new_comic_path, class: 'btn btn-info btn-block' %>
+      </div>
     </div>
   </div>
 
@@ -19,7 +21,7 @@
                 <%= attachment_image_tag comic, :image, size: '100x150' , fallback: "no_comic_image.png" %>
               </div>
               <div class="col-xs-8">
-                <%= link_to comic_path(comic),class: "titlelink" do %>
+                <%= link_to comic_path(comic),class: "titlelink-index" do %>
                 <h4><b><%= truncate comic.title, length: 15 %></b></h4>
                 <% end %>
               </div>
