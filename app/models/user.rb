@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     return User.all unless search
-    User.find_by_sql(["select * from Users where name LIKE ?", "%#{search}%"])
+    User.where(['name LIKE ?',"%#{search}%"])
+    #User.find_by_sql(["select * from Users where name LIKE ?", "%#{search}%"])
   end
 end
